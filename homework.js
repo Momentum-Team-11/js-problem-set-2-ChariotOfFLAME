@@ -5,6 +5,16 @@
 //
 // If the potential member is not in the array, return the array unchanged.
 // If the potential member is in the array, remove all instances of it from the array.
+function remove ([students], name) {
+    let newArray = students.slice();
+    for (let name of newArray) { //it breaks right here. WHY THE FFFFFFF DOES IT BREAK?!?!?
+    //     if (name = 0) {
+    //         newArray.pop(name)
+    //     }
+    // }
+    // console.log(newArray)
+    // return newArray
+}
 
 // 2. Revisit your "remove" function. Make sure that it does not change the original
 // array but instead returns a new array.
