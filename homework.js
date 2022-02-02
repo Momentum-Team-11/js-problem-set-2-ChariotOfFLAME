@@ -40,18 +40,16 @@ function average(number) {
     }
 }
 
-// function average (numbers) {
-//     let base = 0
-//     let newNumbers = [...numbers]
-//         for (let number of newNumbers) {
-//             (base += number) / newNumbers.length
-//         }
-//     console.log(base)
-//     return base
-// }
-
 // 5. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
+
+function minimum(number) {
+    let minimum = 0
+    for (let single of number) {
+            return minimum = Math.min(...number)
+            
+        }
+}
 
 // 6. There are many techniques to sort arrays in programming. Your programming
 // language will likely include the ability to do this. We are going to
@@ -77,8 +75,46 @@ function average(number) {
 // https://courses.cs.vt.edu/csonline/Algorithms/Lessons/SelectionSort/index.html
 // to see how. This may make more sense to you.
 
+// function selectionSort(array) {
+//     let arrayCopy = [...array]
+//     let sortedArray = []
+//     for (let single of arrayCopy) {
+//         let number = Math.min(...arrayCopy)
+//         sortedArray.push(number) 
+//         let currentMin = arrayCopy.indexOf(number)
+//         arrayCopy.splice(currentMin, 1)
+//     }
+//     return sortedArray
+// }
+
+function selectionSort(arrayOrignal) {
+    let array = [...arrayOrignal]
+    for (let i = 0; i < array.length - 1; i++) {
+        let minIndex = i;
+
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[j] < array[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        if (i !== minIndex) {
+            let temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }
+    }
+    return array
+}
+
 // 7. Create a function called `textList` that takes an array and joins its elements
 // into a string separated by commas.
 //
 // For example, `textList(['Cadence', 'Ordel', 'Marion'])` results in the string
 // `"Cadence,Ordel,Marion"`.
+
+function textList(textArray) {
+let newArray = [...textArray]
+let output = newArray.toString()
+return output
+}
