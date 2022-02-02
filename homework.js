@@ -5,16 +5,15 @@
 //
 // If the potential member is not in the array, return the array unchanged.
 // If the potential member is in the array, remove all instances of it from the array.
-// function remove (students) {
-function remove(students)
-    let newArray = [...students];
-    for (let name of newArray) { //it breaks right here. WHY THE FFFFFFF DOES IT BREAK?!?!?
-        if (newArray.indexOf("Cadence")) {
-            newArray.pop(name)
+
+function remove(array, thingToRemove) {
+    let keepArray = []
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== thingToRemove) {
+            keepArray.push(array[i])
         }
     }
-    console.log(newArray)
-    return newArray
+    return keepArray
 }
 
 // 2. Revisit your "remove" function. Make sure that it does not change the original
@@ -23,28 +22,33 @@ function remove(students)
 // 3. Create a function called "sum" that takes an array of numbers and
 // returns the sum of those numbers.
 
-function sum (numbers) {
-    let base = 0
-    let newNumbers = [...numbers]
-        for (let number of newNumbers) {
-            base += number
+function sum(number) {
+    let sum = 0
+    for (let single of number) {
+            sum = sum + single
         }
-    console.log(base)
-    return base
+    return sum
 }
 
 // 4. Create a function called "average" that takes an array of numbers
 // and returns the average of those numbers.
 
-function average (numbers) {
-    let base = 0
-    let newNumbers = [...numbers]
-        for (let number of newNumbers) {
-            (base += number) / newNumbers.length
-        }
-    console.log(base)
-    return base
+function average(number) {
+    let average = 0
+    for (let single of number) {
+        return average = sum(number) / number.length
+    }
 }
+
+// function average (numbers) {
+//     let base = 0
+//     let newNumbers = [...numbers]
+//         for (let number of newNumbers) {
+//             (base += number) / newNumbers.length
+//         }
+//     console.log(base)
+//     return base
+// }
 
 // 5. Create a function called "minimum" that takes an array of numbers and
 // returns the smallest number in that array.
