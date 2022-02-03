@@ -6,11 +6,23 @@
 // If the potential member is not in the array, return the array unchanged.
 // If the potential member is in the array, remove all instances of it from the array.
 
+// ---Original Code---
+// function remove(array, thingToRemove) {
+//     let keepArray = []
+//     for (let i = 0; i < array.length; i++) {
+//         if (array[i] !== thingToRemove) {
+//             keepArray.push(array[i])
+//         }
+//     }
+//     return keepArray
+// }
+
+// ---Refactored Code---
 function remove(array, thingToRemove) {
     let keepArray = []
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] !== thingToRemove) {
-            keepArray.push(array[i])
+    for (let thing of array) {
+        if (thing !== thingToRemove) {
+            keepArray.push(thing)
         }
     }
     return keepArray
