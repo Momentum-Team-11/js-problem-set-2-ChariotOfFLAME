@@ -18,13 +18,21 @@
 // }
 
 // ---Refactored Code---
+// function remove(array, thingToRemove) {
+//     let keepArray = []
+//     for (let thing of array) {
+//         if (thing !== thingToRemove) {
+//             keepArray.push(thing)
+//         }
+//     }
+//     return keepArray
+// }
+
+//---Refactored using filter---
 function remove(array, thingToRemove) {
-    let keepArray = []
-    for (let thing of array) {
-        if (thing !== thingToRemove) {
-            keepArray.push(thing)
-        }
-    }
+    let keepArray = array.filter(function(thing){
+        return thing != thingToRemove
+    })
     return keepArray
 }
 
@@ -37,7 +45,7 @@ function remove(array, thingToRemove) {
 function sum(number) {
     let sum = 0
     for (let single of number) {
-            sum = sum + single
+            sum += single
         }
     return sum
 }
@@ -87,11 +95,12 @@ function minimum(number) {
 // https://courses.cs.vt.edu/csonline/Algorithms/Lessons/SelectionSort/index.html
 // to see how. This may make more sense to you.
 
+//---first attempt. CLOSE!---
 // function selectionSort(array) {
 //     let arrayCopy = [...array]
 //     let sortedArray = []
-//     for (let single of arrayCopy) {
-//         let number = Math.min(...arrayCopy)
+//     for (let single of arrayCopy) { //needed to be a while loop
+//         let number = Math.min(...arrayCopy) //had I called minimum, this would have worked!!!
 //         sortedArray.push(number) 
 //         let currentMin = arrayCopy.indexOf(number)
 //         arrayCopy.splice(currentMin, 1)
@@ -99,24 +108,38 @@ function minimum(number) {
 //     return sortedArray
 // }
 
-function selectionSort(arrayOrignal) {
-    let array = [...arrayOrignal]
-    for (let i = 0; i < array.length - 1; i++) {
-        let minIndex = i;
+//---Web Search Solution---
+// function selectionSort(arrayOrignal) {
+//     let array = [...arrayOrignal]
+//     for (let i = 0; i < array.length - 1; i++) {
+//         let minIndex = i;
 
-        for (let j = i + 1; j < array.length; j++) {
-            if (array[j] < array[minIndex]) {
-                minIndex = j;
-            }
-        }
+//         for (let j = i + 1; j < array.length; j++) {
+//             if (array[j] < array[minIndex]) {
+//                 minIndex = j;
+//             }
+//         }
 
-        if (i !== minIndex) {
-            let temp = array[i];
-            array[i] = array[minIndex];
-            array[minIndex] = temp;
-        }
+//         if (i !== minIndex) {
+//             let temp = array[i];
+//             array[i] = array[minIndex];
+//             array[minIndex] = temp;
+//         }
+//     }
+//     return array
+// }
+
+//---Amy's Solution---
+function selectionSort(arrayOriginal) {
+    let sortedArray = []
+    let arrayCopy = [...arrayOriginal]
+    while (arrayCopy.length > 0) {
+        let minNum = minimum(arrayCopy)
+        sortedArray.push(minNum)
+        let indexOfMinNum = arrayCopy.indexOf(minNum)
+        arrayCopy.splice(indexOfMinNum, 1)
     }
-    return array
+    return sortedArray
 }
 
 // 7. Create a function called `textList` that takes an array and joins its elements
